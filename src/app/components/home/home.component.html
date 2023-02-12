@@ -1,0 +1,26 @@
+<mat-card *ngIf="userData$ | async as user"
+>
+  <mat-card-title>You are logged in as:
+  </mat-card-title
+  >
+  <mat-card-content>
+    <table mat-table #table [dataSource]="user" class="mat-elevation-z8">
+      <ng-container matColumnDef="key">
+        <th mat-header-cell *matHeaderCellDef>key</th>
+        <td mat-cell *matCellDef="let user">{{ user.name }}:</td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>value</th>
+        <td mat-cell *matCellDef="let user">{{ user.value }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['key', 'value']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['key', 'value']"></tr>
+    </table>
+
+  </mat-card-content
+  >
+  <button (click)="logout()" mat-raised-button>Log out</button>
+</mat-card>
+
