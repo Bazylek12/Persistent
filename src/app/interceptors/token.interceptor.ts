@@ -23,7 +23,9 @@ export class TokenInterceptor implements HttpInterceptor {
       })
     }
     return next.handle(request)
-    /* the code below breaks setError */
+
+
+    /* the code below breaks setError in auth-localstorage.ts */
 
     //   .pipe(
     //   catchError((err) => {

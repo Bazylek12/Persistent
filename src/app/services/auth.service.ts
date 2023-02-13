@@ -10,9 +10,9 @@ import {environment} from "../../environments/environment";
 export class AuthService {
   constructor(private _httpClient: HttpClient, private _router: Router, private storage: Storage) {
   }
-  private _tokenSubject: BehaviorSubject<TokenModel | string> = new BehaviorSubject<TokenModel | string>(this.storage.getItem('token')!);
+  private _tokenSubject: BehaviorSubject<string> = new BehaviorSubject<string>(this.storage.getItem('token')!);
 
-  public get tokenValue(): TokenModel | string {
+  public get tokenValue(): string {
     return this._tokenSubject.value;
   }
 
